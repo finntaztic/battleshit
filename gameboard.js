@@ -5,7 +5,7 @@ export class Ship {
         this.isSunk = isSunk;
     }
 
-    receiveAttack(){
+    hit(){
         return this.hit ++;
     }
 
