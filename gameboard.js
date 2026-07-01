@@ -1,18 +1,21 @@
 export class Ship {
-    constructor (length, hit, isSunk){ //i added miss but it wouldnt be right, thats board
+    constructor (length){ 
         this.length = length;
-        this.hit = hit;
-        this.isSunk = isSunk;
+        this.hit = 0;
+        this.sunk = false;
     }
 
-    hit(){
-        return this.hit ++;
+    addHit(){
+        return ++this.hit;
     }
 
     isSunk(){
         if (this.length <= this.hit){
-            return this.isSunk = true;
-        } else return this.isSunk = false;
+            return this.sunk = true;
+        } else return this.sunk = false;
     }
 }
 
+export class Gameboard{
+    
+}

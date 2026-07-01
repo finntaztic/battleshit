@@ -1,6 +1,20 @@
 import { Ship } from "./gameboard.js";
 
-let ship = Ship();
+let ship;
+
+beforeEach(() => {
+    ship = new Ship();
+})
+
 test('hit count', () => {
-    expect(ship.hit()).toBe(1)
+    expect(ship.addHit()).toBe(1);
+})
+
+test('if sunk', () => {
+    ship.length = 4;
+    ship.addHit();
+    ship.addHit();
+    ship.addHit();
+    ship.addHit();
+    expect(ship.isSunk()).toBe(true)
 })
