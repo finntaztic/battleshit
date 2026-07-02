@@ -17,5 +17,7 @@ export class Ship {
 }
 
 export class Gameboard{
-    
+    addShip(){
+        
+    }
 }
