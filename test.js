@@ -28,19 +28,37 @@ test ('if gameboard length is correct', () => {
     expect(gameboard.board.length).toBe(10);    
 });
 
-test ('if ships being placed', () => {
-    ship = new Ship(5);
+test ('if ships being placed as ship', () => {
+    // console.log(gameboard.test)
+    ship = new Ship(3);
     let board = gameboard.board;
     gameboard.placeShip(ship, 2, 7, 'vertical')
     expect(board[2][7]).toBeInstanceOf(Ship)
 });
 
-// test ('if ships not being placed when outside of grid', () => {
-//     ship = new Ship (5);
-//     let board = gameboard.board;
-//     // gameboard.placeShip(ship, 2, 7, 'horizontal')
-//     expect(console.log(gameboard.placeShip(ship, 2, 7, 'horizontal'))).toBe(
-//         [2,7]
-//     )
-    
-// })
+test ('if ships out of bounds eventually not place the ship', () => {
+    // console.log(gameboard.test)
+    ship = new Ship(5);
+    let board = gameboard.board;
+    gameboard.placeShip(ship, 2, 7, 'vertical')
+    expect(board[2][7]).toBe(null)
+});
+
+test ('if ships that are inside the bounds are placed', () => {
+    // console.log(gameboard.test)
+    ship = new Ship(2);
+    let board = gameboard.board;
+    gameboard.placeShip(ship, 2, 7, 'vertical')
+    expect(board[2][7]).toBeInstanceOf(Ship)
+});
+
+test ('check if receive attack properly add hits to ship', () => {
+    ship = new Ship(1);
+    let board = gameboard.board;
+    gameboard.placeShip(ship, 2, 7, 'vertical');
+    gameboard.receiveAttack(2,7);
+    console.log(board[2][7])
+    // expect(board[2][7].hit).toBe(1)
+})
+
+
