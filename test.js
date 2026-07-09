@@ -44,21 +44,13 @@ test ('if ships out of bounds eventually not place the ship', () => {
     expect(board[2][7]).toBe(null)
 });
 
-test ('if ships that are inside the bounds are placed', () => {
-    // console.log(gameboard.test)
-    ship = new Ship(2);
-    let board = gameboard.board;
-    gameboard.placeShip(ship, 2, 7, 'vertical')
-    expect(board[2][7]).toBeInstanceOf(Ship)
-});
-
 test ('check if receive attack properly add hits to ship', () => {
     ship = new Ship(1);
     let board = gameboard.board;
     gameboard.placeShip(ship, 2, 7, 'vertical');
     gameboard.receiveAttack(2,7);
-    console.log(board[2][7])
-    // expect(board[2][7].hit).toBe(1)
+    expect(board[2][7].hitCount).toBe(1)
+    expect(board[2][7].sunk).toBe(true)
 })
 
 

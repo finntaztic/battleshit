@@ -21,6 +21,7 @@ export class Gameboard{
         this.row = 10;
         this.col = 10;
         this.board = [];
+        this.miss = [];
     }
 
     createBoard(){
@@ -57,33 +58,20 @@ export class Gameboard{
                 board[cells[j][0]][cells[j][1]] = ship;
         }
     }
-    
+
     receiveAttack(x,y){
-        let miss = []
         const board = this.board;
         const cell = board[x][y]
         if (cell !== null){
             cell.hit()
             cell.isSunk();
-        } else miss.push(cell)
+        } else this.miss.push([x,y]); //add coordinates instead of coordinate address
     }
 }
 
-// function 
-
-
-
-            // // // if (orientation == 'horizontal')
-            //     addCell = [x + i, y]
-            //     if (addCell[0] > 9 || addCell[0] < 0) return;
-            //     // else board[addCell[0]][addCell[1]] = ship;
-            //     console.log(addCell)
-            // } else if (orientation == 'vertical'){
-            //     addCell = [x, y + i]
-            //     if (addCell[1] > 9 || addCell[1] < 0) return;
-            //     // else board[addCell[0]][addCell[1]] = ship;
-            //     console.log(addCell)
-            // }
-        // return board[addCell[0]][addCell[1]]
-        // return addCell
-  
+export class Player{
+    constructor(type){
+        this.type = type;
+        this.Gameboard = new Gameboard();
+    }
+}
