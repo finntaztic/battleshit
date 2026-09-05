@@ -1,5 +1,6 @@
 import { Ship } from "./gameboard.js";
 import { Gameboard } from "./gameboard.js";
+import { GameController } from "./gamecontroller.js";
 
 let ship;
 let gameboard;
@@ -51,6 +52,10 @@ test ('check if receive attack properly add hits to ship', () => {
     gameboard.receiveAttack(2,7);
     expect(board[2][7].hitCount).toBe(1)
     expect(board[2][7].sunk).toBe(true)
+})
+
+test ('if ships were placed', () => {
+
 })
 
 
